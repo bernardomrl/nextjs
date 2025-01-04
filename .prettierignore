@@ -8,3 +8,4 @@ coverage
 *.log
 bun.lockb
 .bun
+src/components/ui

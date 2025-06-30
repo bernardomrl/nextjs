@@ -1,5 +1,9 @@
-import { ThemeProvider } from "@/components/providers";
+import { FontProvider, ThemeProvider } from '@/components/providers';
 
 export function RootProvider({ children }: React.PropsWithChildren) {
-  return <ThemeProvider>{children}</ThemeProvider>;
+	return (
+		<ThemeProvider>
+			<FontProvider>{children}</FontProvider>
+		</ThemeProvider>
+	);
 }

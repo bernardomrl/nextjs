@@ -1,9 +1,38 @@
+# ─────────────── Dependências e builds ───────────────
 node_modules
 .next
 out
 build
-coverage
+dist
 .vercel
-*.log
-bun.lockb
 .bun
+bun.lockb
+
+# ─────────────── Test coverage ───────────────
+coverage
+
+# ─────────────── Arquivos de log ───────────────
+*.log
+
+# ─────────────── Caches e configs temporários ───────────────
+.cache/
+*.cache
+.vscode/
+*.tsbuildinfo
+
+# ─────────────── Artefatos gerados ───────────────
+*.min.js
+*.min.css
+*.map
+*.d.ts
+
+# ─────────────── Assets brutos ───────────────
+public/**/*.{png,jpg,jpeg,gif,svg,ico,webp,avif}
+*.pdf
+*.zip
+
+# ─────────────── Arquivos de ambiente / editor ───────────────
+.env*
+*.swp
+.DS_Store
+Thumbs.db

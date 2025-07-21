@@ -1,23 +1,19 @@
-import { Metadata } from 'next';
-
-import { RootProvider } from '@/components/providers';
+import type { Metadata } from 'next';
+import type { PropsWithChildren } from 'react';
 
 import '@/styles/globals.css';
 
 export const metadata: Metadata = {
 	title: {
-		default: 'Next.js',
-		template: '%s| Next.js'
-	},
-	description: 'Next.js boilerplate.'
+		default: 'Next.js boilerplate',
+		template: '%s | Next.js'
+	}
 };
 
-export default function RootLayout({ children }: React.PropsWithChildren) {
+export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
 	return (
-		<html lang="en-US" suppressHydrationWarning>
-			<body className="antialised h-dvh scroll-smooth">
-				<RootProvider>{children}</RootProvider>
-			</body>
+		<html>
+			<body>{children}</body>
 		</html>
 	);
 }

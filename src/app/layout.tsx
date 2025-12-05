@@ -12,8 +12,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
 	return (
-		<html>
-			<body>{children}</body>
+		<html lang="pt-BR">
+			<body className="font-sans antialiased">{children}</body>
 		</html>
 	);
 }

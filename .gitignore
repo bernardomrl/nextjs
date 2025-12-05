@@ -1,25 +1,25 @@
-# ────────────── Dependências ──────────────
+# Dependências
 /node_modules/
 
-# ────────────── Build / Output ──────────────
+# Build / Output
 /.next/
 /out/
 /build/
 
-# ────────────── Logs & Debug ──────────────
+# Logs & Debug
 *.log
 *.tsbuildinfo
 .pnpm-debug.log*
 
-# ────────────── Ambiente (Env Vars) ──────────────
+# Ambiente (Env Vars)
 .env
 
-# ────────────── Sistema / Editor ──────────────
+# Sistema / Editor
 .DS_Store
 *.pem
 
-# ────────────── Vercel / Hosting ──────────────
+# Vercel / Hosting
 .vercel/
 
-# ────────────── Next.js internals ──────────────
+# Next.js internals
 next-env.d.ts

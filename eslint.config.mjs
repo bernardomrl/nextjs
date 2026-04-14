@@ -1,15 +1,13 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { fixupPluginRules } from '@eslint/compat';
+import { fixupConfigRules, fixupPluginRules } from '@eslint/compat';
 import { FlatCompat } from '@eslint/eslintrc';
 import js from '@eslint/js';
 import nextEslintPluginNext from '@next/eslint-plugin-next';
-import typescriptEslint from '@typescript-eslint/eslint-plugin';
 import tsParser from '@typescript-eslint/parser';
 import jsxA11y from 'eslint-plugin-jsx-a11y';
 import perfectionist from 'eslint-plugin-perfectionist';
-import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
 import sonarjs from 'eslint-plugin-sonarjs';
 import unusedImports from 'eslint-plugin-unused-imports';
@@ -37,17 +35,17 @@ export default defineConfig([
 		'**/*.js'
 	]),
 	{
-		extends: compat.extends(
-			'eslint:recommended',
-			'plugin:react/recommended',
-			'plugin:@typescript-eslint/recommended',
-			'plugin:prettier/recommended',
-			'prettier'
+		extends: fixupConfigRules(
+			compat.extends(
+				'eslint:recommended',
+				'plugin:react/recommended',
+				'plugin:@typescript-eslint/recommended',
+				'plugin:prettier/recommended',
+				'prettier'
+			)
 		),
 
 		plugins: {
-			react,
-			'@typescript-eslint': typescriptEslint,
 			'react-hooks': fixupPluginRules(reactHooks),
 			'@next/next': nextEslintPluginNext,
 			perfectionist,
@@ -124,7 +122,7 @@ export default defineConfig([
 						'type',
 						'side-effect'
 					],
-					newlinesBetween: 'always',
+					newlinesBetween: 1,
 					order: 'asc'
 				}
 			]

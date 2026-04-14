@@ -1,4 +1,4 @@
-# Dependências e builds
+# Build & deps
 node_modules
 .next
 out
@@ -11,27 +11,27 @@ bun.lockb
 # Test coverage
 coverage
 
-# Arquivos de log
+# Logfiles
 *.log
 
-# Caches e configs temporários
+# Caches
 .cache/
 *.cache
 .vscode/
 *.tsbuildinfo
 
-# Artefatos gerados
+# Artifacts
 *.min.js
 *.min.css
 *.map
 *.d.ts
 
-# Assets brutos
+# Assets
 public/**/*.{png,jpg,jpeg,gif,svg,ico,webp,avif}
 *.pdf
 *.zip
 
-# Arquivos de ambiente / editor
+# Environment
 .env*
 *.swp
 .DS_Store

@@ -1,4 +1,4 @@
-# Dependências
+# Deps
 /node_modules/
 
 # Build / Output
@@ -11,10 +11,10 @@
 *.tsbuildinfo
 .pnpm-debug.log*
 
-# Ambiente (Env Vars)
+# Environment
 .env
 
-# Sistema / Editor
+# Editor
 .DS_Store
 *.pem
 

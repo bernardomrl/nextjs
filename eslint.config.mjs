@@ -17,115 +17,113 @@ import globals from 'globals';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const compat = new FlatCompat({
-	baseDirectory: __dirname,
-	recommendedConfig: js.configs.recommended,
-	allConfig: js.configs.all
+    baseDirectory: __dirname,
+    recommendedConfig: js.configs.recommended,
+    allConfig: js.configs.all
 });
 
 export default defineConfig([
-	globalIgnores([
-		'**/node_modules',
-		'**/.next',
-		'**/out',
-		'**/build',
-		'**/coverage',
-		'**/.vercel',
-		'**/*.log',
-		'**/bun.lockb',
-		'**/*.js'
-	]),
-	{
-		extends: fixupConfigRules(
-			compat.extends(
-				'eslint:recommended',
-				'plugin:react/recommended',
-				'plugin:@typescript-eslint/recommended',
-				'plugin:prettier/recommended',
-				'prettier'
-			)
-		),
+    globalIgnores([
+        '**/node_modules',
+        '**/.next',
+        '**/out',
+        '**/build',
+        '**/coverage',
+        '**/.vercel',
+        '**/*.log',
+        '**/bun.lockb',
+        '**/*.js'
+    ]),
+    {
+        extends: fixupConfigRules(
+            compat.extends(
+                'eslint:recommended',
+                'plugin:react/recommended',
+                'plugin:@typescript-eslint/recommended',
+                'prettier' // Mantemos apenas o eslint-config-prettier aqui
+            )
+        ),
 
-		plugins: {
-			'react-hooks': fixupPluginRules(reactHooks),
-			'@next/next': nextEslintPluginNext,
-			perfectionist,
-			sonarjs,
-			'jsx-a11y': jsxA11y,
-			'unused-imports': unusedImports
-		},
+        plugins: {
+            'react-hooks': fixupPluginRules(reactHooks),
+            '@next/next': nextEslintPluginNext,
+            perfectionist,
+            sonarjs,
+            'jsx-a11y': jsxA11y,
+            'unused-imports': unusedImports
+        },
 
-		languageOptions: {
-			globals: {
-				...globals.browser,
-				...globals.node
-			},
+        languageOptions: {
+            globals: {
+                ...globals.browser,
+                ...globals.node
+            },
 
-			parser: tsParser,
-			ecmaVersion: 'latest',
-			sourceType: 'module'
-		},
+            parser: tsParser,
+            ecmaVersion: 'latest',
+            sourceType: 'module'
+        },
 
-		settings: {
-			react: {
-				version: 'detect'
-			}
-		},
+        settings: {
+            react: {
+                version: 'detect'
+            }
+        },
 
-		rules: {
-			'react-hooks/rules-of-hooks': 'error',
-			'react-hooks/exhaustive-deps': 'warn',
-			'react/react-in-jsx-scope': 'off',
-			'prettier/prettier': 'error',
+        rules: {
+            'react-hooks/rules-of-hooks': 'error',
+            'react-hooks/exhaustive-deps': 'warn',
+            'react/react-in-jsx-scope': 'off',
 
-			'jsx-a11y/alt-text': 'warn',
-			'jsx-a11y/anchor-is-valid': 'warn',
-			'jsx-a11y/aria-role': 'warn',
-			'jsx-a11y/click-events-have-key-events': 'warn',
-			'jsx-a11y/label-has-associated-control': 'warn',
-			'jsx-a11y/no-autofocus': 'warn',
-			'jsx-a11y/no-static-element-interactions': 'warn',
-			'jsx-a11y/role-supports-aria-props': 'warn',
+            'jsx-a11y/alt-text': 'warn',
+            'jsx-a11y/anchor-is-valid': 'warn',
+            'jsx-a11y/aria-role': 'warn',
+            'jsx-a11y/click-events-have-key-events': 'warn',
+            'jsx-a11y/label-has-associated-control': 'warn',
+            'jsx-a11y/no-autofocus': 'warn',
+            'jsx-a11y/no-static-element-interactions': 'warn',
+            'jsx-a11y/role-supports-aria-props': 'warn',
 
-			'sonarjs/no-duplicate-string': 'warn',
-			'sonarjs/no-identical-functions': 'warn',
-			'sonarjs/no-collapsible-if': 'warn',
-			'sonarjs/no-unused-collection': 'warn',
-			'sonarjs/prefer-single-boolean-return': 'warn',
-			'sonarjs/prefer-immediate-return': 'warn',
+            'sonarjs/no-duplicate-string': 'warn',
+            'sonarjs/no-identical-functions': 'warn',
+            'sonarjs/no-collapsible-if': 'warn',
+            'sonarjs/no-unused-collection': 'warn',
+            'sonarjs/prefer-single-boolean-return': 'warn',
+            'sonarjs/prefer-immediate-return': 'warn',
 
-			'@typescript-eslint/no-empty-object-type': 'off',
+            '@typescript-eslint/no-empty-object-type': 'off',
 
-			'no-unused-vars': 'off',
-			'no-console': 'warn',
-			'unused-imports/no-unused-imports': 'warn',
-			'unused-imports/no-unused-vars': [
-				'warn',
-				{
-					vars: 'all',
-					varsIgnorePattern: '^_',
-					args: 'after-used',
-					argsIgnorePattern: '^_'
-				}
-			],
+            'no-unused-vars': 'off',
+            'no-console': 'warn',
+            'unused-imports/no-unused-imports': 'warn',
+            'unused-imports/no-unused-vars': [
+                'warn',
+                {
+                    vars: 'all',
+                    varsIgnorePattern: '^_',
+                    args: 'after-used',
+                    argsIgnorePattern: '^_'
+                }
+            ],
 
-			'perfectionist/sort-imports': [
-				'warn',
-				{
-					type: 'alphabetical',
-					groups: [
-						'builtin',
-						'external',
-						'internal',
-						'parent',
-						'sibling',
-						'index',
-						'type',
-						'side-effect'
-					],
-					newlinesBetween: 1,
-					order: 'asc'
-				}
-			]
-		}
-	}
+            'perfectionist/sort-imports': [
+                'warn',
+                {
+                    type: 'alphabetical',
+                    groups: [
+                        'builtin',
+                        'external',
+                        'internal',
+                        'parent',
+                        'sibling',
+                        'index',
+                        'type',
+                        'side-effect'
+                    ],
+                    newlinesBetween: 1,
+                    order: 'asc'
+                }
+            ]
+        }
+    }
 ]);
